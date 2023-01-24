@@ -1,8 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    ":semanticCommitTypeAll(build)",
     "config:base",
+    ":semanticCommitTypeAll(build)",
     ":prHourlyLimitNone",
     "regexManagers:dockerfileVersions"
   ],
