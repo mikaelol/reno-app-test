@@ -1,15 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
+    ":semanticCommitTypeAll(build)",
     "config:base",
     ":prHourlyLimitNone",
-    ":semanticCommitTypeAll(build)",
     "regexManagers:dockerfileVersions"
   ],
   "golang": {
     "enabled": false
   },
   "github-actions": {
-    "enabled": true
+    "enabled": false
   }
 }
