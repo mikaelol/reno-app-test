@@ -1,6 +1,9 @@
 ---
 name: Renovate
-on: {}
+on:
+  push:
+    branches: 
+      - never
 jobs:
   renovate:
     runs-on: ubuntu-latest
