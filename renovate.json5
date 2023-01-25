@@ -16,7 +16,7 @@
     {
       "fileMatch": [".*"],
       "matchStrings": [
-        "renovate:\\s+datasource=(?<datasource>\\S+?) depName=(?<depName>\\S+?)( versioning=(?<versioning>\\S+?))?( registryUrl=(?<registryUrl>\\S+?))?\\s+(\\S+?_)?(VERSION|version|TAG|tag)\\s*[?]?[=:]\\s*(?<currentValue>\\S+?)\\n",
+        "renovate:\\s+datasource=(?<datasource>\\S+?) depName=(?<depName>\\S+?)( versioning=(?<versioning>\\S+?))?( registryUrl=(?<registryUrl>\\S+?))?\\s+(\\S+?_)?(VERSION|version|TAG|tag)\\s*[?]?[=:]\\s*(?<currentValue>\\S+?)\\s{2,}",
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
     },
