@@ -1,6 +1,9 @@
 ---
 name: CI
-on: {}
+on:
+  push:
+    branches: 
+      - never
 concurrency:
   group: ci-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
