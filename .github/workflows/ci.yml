@@ -132,7 +132,7 @@ jobs:
       - uses: jaxxstorm/action-install-gh-release@f2bcf7617d36fea65f0a9d261d4947b19947956e # v1.9.0
         with:
           repo: kudobuilder/kuttl
-          # renovate: datasource=git-tags depName=https://github.com/kudobuilder/kuttl.git
+          # renovate: datasource=git-tags depName=kudobuilder/kuttl
           tag: v0.14.0
           cache: enable
       - run: |
