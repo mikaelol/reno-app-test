@@ -20,5 +20,13 @@
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
     },
+    {
+      "fileMatch": [".+\\.ya?ml$"],
+      "matchStrings": [
+        "# renovate(: versioning=(?<versioning>.*?))?\\n\\s*(.+?_IMAGE|image): (?<depName>.+?):(?<currentValue>.+?)(\\s|$)",
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+    },
   ],
 }
