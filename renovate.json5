@@ -6,6 +6,7 @@
     ":prHourlyLimitNone",
     "regexManagers:dockerfileVersions",
   ],
+  "ignorePaths": [],
   "golang": {
     "enabled": false,
   },
