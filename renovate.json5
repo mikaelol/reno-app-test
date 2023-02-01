@@ -8,7 +8,7 @@
   ],
   "kubernetes": {
     "fileMatch": ["test/e2e-test/stateful-set.yaml$"]
-  }
+  },
   "ignorePaths": [],
   "golang": {
     "enabled": false,
