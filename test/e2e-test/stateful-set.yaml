@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: server
-          # renovate-image: versioning=docker
+          # renovate-image:
           image: nginx:1.10.0 #ghcr.io/aquasecurity/trivy:0.36.1
           args:
             - server
