@@ -6,6 +6,14 @@
     ":prHourlyLimitNone",
     "regexManagers:dockerfileVersions",
   ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "ghcr.io/aquasecurity/trivy",
+      ],
+      "semanticCommitType": "build",
+    }
+  ],
   "kubernetes": {
     "fileMatch": ["test/e2e-test/stateful-set.yaml$"]
   },
