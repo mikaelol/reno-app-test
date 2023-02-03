@@ -2,7 +2,7 @@
 name: CI
 on:
   push:
-    branches: 
+    branches:
       - never
 concurrency:
   group: ci-${{ github.head_ref || github.ref }}
@@ -25,7 +25,7 @@ jobs:
         with:
           go-version-file: go.mod
           cache: true
-      - uses: golangci/golangci-lint-action@0ad9a0988b3973e851ab0a07adf248ec2e100376 # v3.3.1
+      - uses: golangci/golangci-lint-action@08e2f20817b15149a52b5b3ebe7de50aff2ba8c5 # v3.4.0
         with:
           version: v1.50.1
           args: --timeout 5m
@@ -65,7 +65,7 @@ jobs:
         run: |
           make generate-all
       - name: Verify changed files
-        uses: tj-actions/verify-changed-files@a148bdba9d2477a2aca3537bd6bc7a7af54b06f2 # v13
+        uses: tj-actions/verify-changed-files@9ed3155b72ba709881c967f75611fc5852f773b9 # v13.1
         id: verify-changed-files
         with:
           files: |
@@ -97,9 +97,11 @@ jobs:
     needs: verify-generated
     runs-on: ubuntu-latest
     env:
-      IMG: image-scanner/controller:latest
+      IMG: registry.dummy-domain.com/image-scanner/controller:latest
       IMG_FILE: operator-image.tar
       K3D_CLUSTER: image-scanner
+      # renovate: datasource=github-tags depName=k3d-io/k3d
+      K3D_VERSION: v5.3.4
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@18bf8ad2ca49c14cbb28b91346d626ccfb00c518 # v2.1.0
@@ -107,7 +109,7 @@ jobs:
           egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
       - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
       - uses: docker/setup-qemu-action@e81a89b1732b9c48d79cd809d8d81d79c4647a18 # v2.1.0
-      - uses: docker/setup-buildx-action@8c0edbc76e98fa90f69d9a2c020dcb50019dc325 # v2.2.1
+      - uses: docker/setup-buildx-action@5e716dcfd653738c2d1db099bfba194a84158be4 # v2.3.0
       - uses: docker/build-push-action@37abcedcc1da61a57767b7588cb9d03eb57e28b3 # v3.3.0
         with:
           context: .
@@ -120,6 +122,7 @@ jobs:
       - uses: AbsaOSS/k3d-action@4e8b3239042be1dc0aed6c5eb80c13b18200fc79 # v2.4.0
         with:
           cluster-name: ${{ env.K3D_CLUSTER }}
+          k3d-version: ${{ env.K3D_VERSION }}
           args: >-
             --config=test/e2e-config/k3d-config.yml
             --volume=/tmp/pod-logs:/var/log/pods
@@ -132,8 +135,7 @@ jobs:
       - uses: jaxxstorm/action-install-gh-release@f2bcf7617d36fea65f0a9d261d4947b19947956e # v1.9.0
         with:
           repo: kudobuilder/kuttl
-          # renovate: datasource=git-tags depName=https://github.com/kudobuilder/kuttl
-          tag: v0.14.0
+          tag: v0.15.0
           cache: enable
       - run: |
           make e2e-test
