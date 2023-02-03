@@ -136,7 +136,7 @@ jobs:
         with:
           repo: kudobuilder/kuttl
           # renovate: datasource=git-tags depName=https://github.com/kudobuilder/kuttl
-          tag: v0.15.0
+          tag: v0.14.0
           cache: enable
       - run: |
           make e2e-test
