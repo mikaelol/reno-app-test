@@ -6,4 +6,4 @@ CONTROLLER_TOOLS_VERSION ?= v0.11.0
 GOIMPORTS_VERSION ?= v0.2.0
 
 # renovate: datasource=go depName=golang.org/x/tools
-GOIMPORTSS_VERSION ?= v0.1.0
+GOIMPORTSS_VERSION ?= v0.12.0
