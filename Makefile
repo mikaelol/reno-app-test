@@ -4,3 +4,6 @@ KUSTOMIZE_VERSION ?= v5.0.0
 CONTROLLER_TOOLS_VERSION ?= v0.11.0
 # renovate: datasource=go depName=golang.org/x/tools/cmd/goimports
 GOIMPORTS_VERSION ?= v0.2.0
+
+# renovate: datasource=go depName=golang.org/x/tools
+GOIMPORTSS_VERSION ?= v0.1.0
