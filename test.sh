@@ -1,2 +1,2 @@
 # renovate: datasource=github-tags depName=confluentinc/libserdes
-LIBSERDES_VERSION=6.2.1
+LIBSERDES_VERSION=v8.0.0
