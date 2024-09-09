@@ -6,4 +6,4 @@ metadata:
 # renovate-image: versioning=regex:v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-(?<compatibility>k3s)(?<build>\d+)(\s|$)
 image: docker.io/rancher/k3s:v1.26.0-k3s2
           # renovate: datasource=go depName=github.com/golangci/golangci-lint
-          version: v1.54.1
+          version: v1.61.0
