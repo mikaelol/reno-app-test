@@ -1,27 +1,31 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>statnett/renovate-config",
-    ":semanticCommitTypeAll(ci)",
-    ":prHourlyLimitNone",
-    "regexManagers:dockerfileVersions",
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'github>statnett/renovate-config',
+    ':semanticCommitTypeAll(ci)',
+    ':prHourlyLimitNone',
+    'customManagers:dockerfileVersions',
   ],
-  "rebaseWhen": "never",
-  "packageRules": [
+  rebaseWhen: 'never',
+  packageRules: [
     {
-      "matchPackageNames": [
-        "ghcr.io/aquasecurity/trivy",
+      matchPackageNames: [
+        'ghcr.io/aquasecurity/trivy',
       ],
-      "semanticCommitType": "build",
+      semanticCommitType: 'build',
     },
     {
-      "matchManagers": ["gomod"],
-      "semanticCommitType": "build",
+      matchManagers: [
+        'gomod',
+      ],
+      semanticCommitType: 'build',
     },
     {
-      "matchUpdateTypes": ["patch"],
-      "automerge": true,
-    }
+      matchUpdateTypes: [
+        'patch',
+      ],
+      automerge: true,
+    },
   ],
-  "ignorePaths": [],
+  ignorePaths: [],
 }
