@@ -8,4 +8,5 @@
       semanticCommitType: "build",
     },
   ],
+  ignorePaths: [],
 }
